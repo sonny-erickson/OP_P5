@@ -1,0 +1,52 @@
+/*variable*/
+$success : #5cb85c ;
+
+/* Mobile-first */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+#header img{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+#search-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#search{
+    width: 60%;
+}
+.nav-link{
+    color: white;
+}
+header a{
+    font-size: 25px;
+
+    &:hover{
+        font-weight: bold;
+        color:$success;
+    }
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Media queries */
+
+@media (min-width: 768px){
+    #search{
+        width: 70%;
+    }
+}
+@media (min-width: 1024px){
+    #search{
+        width: 50%;
+    }
+}

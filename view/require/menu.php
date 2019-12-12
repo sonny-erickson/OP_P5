@@ -9,13 +9,13 @@
       <nav class="justify-content-center">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Acceuil</a>
+            <a class="nav-link" href="index.php?page=home">Acceuil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Top</a>
+            <a class="nav-link " href="index.php?page=top">Top</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Games</a>
+            <a class="nav-link " href="index.php?page=news">Nouveautés</a>
           </li>
           <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

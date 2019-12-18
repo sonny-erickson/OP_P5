@@ -1,11 +1,16 @@
 <?php  $title = "Page d'acceuil"; ?>
 <?php ob_start(); ?>
+<h1 class="text-center"> TOP 2019</h1>
+  <div id="top">
     
-    <h1 class="text-center"> Le meilleur du jeu vidéo c'est ici!!</h1>
-    <div class="container-fluid">
-       
+      <div class="container">
+        <div class="row my-5" id="games" >
+         
+        </div>
+      </div> 
 
-          </div>
-      </div>
-      <?php $content = ob_get_clean(); ?>
-    <?php require ("view/template.php"); ?>
+          
+  </div>   
+<?php $content = ob_get_clean(); ?>
+<?php require ("view/template.php"); ?>
+<?php require ("view/require/template-card.php"); ?>

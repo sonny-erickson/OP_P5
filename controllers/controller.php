@@ -2,6 +2,7 @@
 
 function home()
 {
+	//$url="https://api.rawg.io/api/developers?search=Annapurna%20Interactive&page_size=1";
 	require ('view/viewHome.php');
 }
 function top()

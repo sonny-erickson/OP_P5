@@ -2,7 +2,8 @@
 session_start();
 require_once ('controllers/controller.php');
 require_once ('controllers/controllerAuth.php');
-
+require_once ('models/Manager.php');
+require_once ('models/modelAuth.php');
 
 try
 {
@@ -36,6 +37,10 @@ try
 		else if($_GET['page'] === 'connection')
 		{
 			connection();
+		}
+		else if($_GET['page'] === 'connectionSend')
+		{
+			connectionSend();
 		}
 		else if($_GET['page'] === 'deconnexion')
 		{

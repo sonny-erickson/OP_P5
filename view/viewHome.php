@@ -7,5 +7,8 @@
 
           </div>
       </div>
+      <script>
+       var url = "<?php echo $url;?>";
+      </script>
       <?php $content = ob_get_clean(); ?>
     <?php require ("view/template.php"); ?>

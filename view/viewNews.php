@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
     
     <h1 class="text-center"> Voici toutes les nouveautés</h1>
-    <div class="container-fluid">
+    <div id="news">
        
 
           </div>

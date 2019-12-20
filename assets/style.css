@@ -38,6 +38,11 @@ header a:hover {
   justify-content: center;
 }
 
+video {
+  display: flex;
+  margin: auto;
+}
+
 /* Media queries */
 @media (min-width: 768px) {
   #search {

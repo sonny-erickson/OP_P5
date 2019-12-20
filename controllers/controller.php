@@ -17,6 +17,10 @@ function mention()
 {
 	require ('view/viewMentionsLegales.php');
 }
+function jeuSolo()
+{
+	require ('view/jeuSolo.php');
+}
 function error()
 {
 	require ('view/viewError.php');

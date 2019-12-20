@@ -1,5 +1,5 @@
 <?php require("require/head.php"); ?>
-<body class="bg-light">
+<body class="bg-dark">
     <?php require("require/menu.php");?>  
     <?= $content ?>
     <?php

@@ -31,16 +31,17 @@ header a{
         color:$success;
     }
 }
-
 .row{
     display: flex;
     justify-content: center;
 }
-// API
-img .card-img-top{
-    max-height: 263px;
-}
 
+  
+// API
+video{
+    display: flex;
+    margin: auto;
+  }
 /* Media queries */
 
 @media (min-width: 768px){

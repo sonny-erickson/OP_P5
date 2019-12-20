@@ -25,6 +25,10 @@ try
 		{
 			mention();
 		}
+		else if($_GET['page'] === 'jeuSolo')
+		{
+			jeuSolo();
+		}
 		else if($_GET['page'] === 'error')
 		{
 			error();

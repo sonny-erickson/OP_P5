@@ -40,12 +40,9 @@ class News{
                     }else{
                         e.target.src = 'assets/logo.png';
                     }
-
                 })
-          }   
-        });
+          }        });
     }
-    
 }
 let nouveautes = new News();
 

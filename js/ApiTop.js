@@ -16,17 +16,22 @@ class Top{
              const directory = fragments[fragments.length-2];
              const file = fragments[fragments.length-1];
              const image = 'https://media.rawg.io/media/crop/600/400/games/' + directory + "/" + file;
-             //console.log(image);
+             
              document.getElementById("top").innerHTML+=`<div class='card col-lg-3 mr-3 ml-3 mb-3 bg-dark'>
              <div class ='card-body'>
              <img src='${image}' class='card-img-top' id='photo-top-${i}' data-try='0' data-directory='${directory}' data-file='${file}'  alt='${bla.results[i].name}'>
              <h5 class='card-title text-center mt-3 text-light' id='titre'>${bla.results[i].name}</h5>
              <p class='text-light' id='support'>Console:  ${bla.results[i].platforms[0].platform.name}</p>
              <p class='text-light'id='date'>Date de sortie: ${bla.results[i].released}</p>
+             <p class='text-light'id='date'>id: ${bla.results[i].id}</p>
+
              <a href='#' class='btn btn-success d-flex justify-content-center'>Plus infos</a>
              </div>
              </div>
                `
+               
+               sessionStorage.setItem('idGame',bla.id);
+             console.log(bla.id);
              document.getElementById('photo-top-'+i).addEventListener('error',e => {
              console.log(e.target.getAttribute('data-directory'));
              const directory = e.target.getAttribute('data-directory');

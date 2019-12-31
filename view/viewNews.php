@@ -1,7 +1,8 @@
 <?php  $title = "Page d'acceuil"; ?>
 <?php ob_start(); ?>
     
-    <h1 class="text-center text-light"> Les nouveautés attendus pour 2020</h1>
+    <h1 class="text-center text-light"> Les nouveautés 2020</h1>
+    <p class="text-light text-center">Voici une liste des jeux les plus attendus pour l'année 2020</p>
     <div>
     
       <div class="container-fluid">

@@ -25,6 +25,10 @@ try
 		{
 			mention();
 		}
+		else if($_GET['page'] === 'details')
+		{
+			details();
+		}
 		else if($_GET['page'] === 'jeuSolo')
 		{
 			jeuSolo();

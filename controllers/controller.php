@@ -2,7 +2,6 @@
 
 function home()
 {
-	//$url="https://api.rawg.io/api/developers?search=Annapurna%20Interactive&page_size=1";
 	require ('view/viewHome.php');
 }
 function top()
@@ -19,6 +18,11 @@ function mention()
 }
 function jeuSolo()
 {
+	require ('view/jeuSolo.php');
+}
+function details()
+{
+	$slug = $_GET['slug'];
 	require ('view/jeuSolo.php');
 }
 function error()

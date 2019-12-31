@@ -11,5 +11,9 @@
 
           
   </div> 
+  <script src="js/Apisolo.js"></script>
+    <script>   
+      let jeu = new Solo("<?php echo $slug; ?>");
+    </script>
       <?php $content = ob_get_clean(); ?>
     <?php require ("view/template.php"); ?>

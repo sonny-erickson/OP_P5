@@ -25,7 +25,6 @@ function inscription()
                             {
                                 $model ->addUser($pseudo, $pass_hache, $mail);
                                 Header("Location:index.php?page=connection"); 
-                                                        
                             }
                             else
                             {

@@ -2,8 +2,10 @@
 session_start();
 require_once ('controllers/controller.php');
 require_once ('controllers/controllerAuth.php');
+require_once ('controllers/controllerAdmin.php');
 require_once ('models/Manager.php');
 require_once ('models/modelAuth.php');
+require_once ('models/modelAdmin.php');
 
 try
 {
@@ -54,6 +56,11 @@ try
 		{
 			deconnexion();
 		}	
+		// --------------------------> ADMIN
+		else if($_GET['page'] === 'listing')
+		{
+			listing();
+		}
 		// else if($_GET['page'] === "route")
 	    // {
 	    //     controlleur();

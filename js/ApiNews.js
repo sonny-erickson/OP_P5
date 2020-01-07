@@ -5,7 +5,7 @@ class News{
         this.container = document.getElementById(idContainer);
     }
     api = (url) =>{
-        console.log(url);
+        //console.log(url);
         ajaxGet(url, (reponse) => {
             const bla = JSON.parse(reponse);// transforme en objet JavaScript
             
@@ -19,11 +19,19 @@ class News{
                 const file = fragments[fragments.length-1];
                 const image = 'https://media.rawg.io/media/crop/600/400/games/' + directory + "/" + file;
                 //console.log(image);
+                let platforms = '';
+                //console.log(bla.results[i].platforms);
+
+                for(let j = 0; j < bla.results[i].parent_platforms.length; j++){//Déja [i] dans for ....
+
+                    //platforms += bla.results[i].platforms[j].platform.slug;
+                    platforms +='<img src="assets/'+ bla.results[i].parent_platforms[j].platform.slug + '.png" alt="'+ bla.results[i].parent_platforms[j].platform.name +'" class="platform">';
+                };
                 this.container.innerHTML+=`<div class='card col-lg-3 mr-3 ml-3 mb-3 bg-dark'>
                 <div class ='card-body'>
                 <img src='${image}' class='card-img-top' id='photo-top-${i}' data-try='0' data-directory='${directory}' data-file='${file}'  alt='${bla.results[i].name}'>
                 <h5 class='card-title text-center mt-3 text-light' id='titre'>${bla.results[i].name}</h5>
-                <p class='text-light'>Console:  </p>
+                <p class='text-light'>Console: ${platforms} </p>
                 <p class='text-light'id='date'>Date de sortie: ${bla.results[i].released}</p>
                 
 
@@ -38,7 +46,7 @@ class News{
                     const file = e.target.getAttribute('data-file');
                     let tries = Number(e.target.getAttribute('data-try'))+1;
                     e.target.setAttribute('data-try',tries);
-                    console.log(tries);
+                    //console.log(tries);
                     if(tries==1){
                         e.target.src = 'https://media.rawg.io/media/crop/600/400/screenshots/' + directory + "/" + file;
                     }else{

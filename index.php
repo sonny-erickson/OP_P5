@@ -6,7 +6,7 @@ require_once ('controllers/controllerAdmin.php');
 require_once ('models/Manager.php');
 require_once ('models/modelAuth.php');
 require_once ('models/modelAdmin.php');
-
+echo $_SESSION['pseudo'];
 try
 {
 	if(isset($_GET['page']))
@@ -60,6 +60,14 @@ try
 		else if($_GET['page'] === 'listing')
 		{
 			listing();
+		}
+		else if($_GET['page'] === 'addGame')
+		{
+			addGame();
+		}
+		else if($_GET['page'] === 'deleteGame')
+		{
+			deleteGame($_GET['id']);
 		}
 		// else if($_GET['page'] === "route")
 	    // {

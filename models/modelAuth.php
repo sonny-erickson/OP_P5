@@ -6,7 +6,7 @@ class ModelAuth extends Manager
     public function pseudoCheck($pseudo)
     {
         $db = $this -> dbConnect();
-        $req = $db ->prepare('SELECT * FROM member WHERE pseudo = ?');
+        $req = $db ->prepare('SELECT * FROM members WHERE pseudo = ?');
         $req -> execute(array($pseudo));
         $result = $req -> rowcount();
         return $result;
@@ -14,7 +14,7 @@ class ModelAuth extends Manager
     public function emailCheckInsciption($email)
     {
         $db = $this -> dbConnect();
-        $req = $db ->prepare('SELECT * FROM member WHERE email = ?');
+        $req = $db ->prepare('SELECT * FROM members WHERE email = ?');
         $req -> execute(array($email));
         $result = $req -> rowcount();
         return $result;
@@ -23,7 +23,7 @@ class ModelAuth extends Manager
     public function addUser($pseudo, $pass_hache, $mail)
     {   
         $db = $this -> dbConnect();
-        $req = $db->prepare('INSERT INTO member(pseudo, pass, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
+        $req = $db->prepare('INSERT INTO members(pseudo, pass, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
         $req->execute(array('pseudo' => $pseudo,
                             'pass' => $pass_hache,
                             'email' => $mail));
@@ -32,7 +32,7 @@ class ModelAuth extends Manager
     public function emailCheckConnection($mailConnect)
     {
         $db = $this -> dbConnect();
-        $req = $db -> prepare ('SELECT * FROM member WHERE email = :email');
+        $req = $db -> prepare ('SELECT * FROM members WHERE email = :email');
         $req -> execute(array('email' => $mailConnect));
         $result = $req -> fetch();
         return $result;

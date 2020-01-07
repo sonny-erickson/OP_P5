@@ -58,6 +58,9 @@ video{
     display: flex;
     margin: auto;
   }
+  .platform{
+      max-width: 20px;
+  }
 /* Media queries */
 
 @media (min-width: 768px){

@@ -30,6 +30,7 @@
     </form>
     <div class="text-center">
       <p>
+          123@hotmail.fr / 1234
           Toujours pas de compte ? <a class="text-success" href="index.php?page=inscription">Inscrivez-vous ici !</a>
       </p>
     </div>

@@ -84,7 +84,8 @@ function connectionSend()
         if(!empty($_POST['mailConnect']) AND !empty($_POST['passConnect']))
         {
             $model = new ModelAuth();
-            $user = $model ->emailCheckConnection($mailConnect);
+            $user = $model->emailCheckConnection($mailConnect);
+
             // vérif le pass
             if (!$user) 
             {
@@ -93,6 +94,7 @@ function connectionSend()
             else
             {
                 $isPassCorrect = password_verify($_POST['passConnect'], $user['pass']);
+                //var_dump($isPassCorrect); die();
                 if ($isPassCorrect)
                 {
                     $_SESSION['id_member'] = $user['id_member'];

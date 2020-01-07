@@ -43,6 +43,7 @@ header a:hover {
   background: url("../assets/donkey-background.jpg") center center fixed;
   opacity: 0.7;
 }
+
 #home p {
   color: white;
   text-align: center;
@@ -59,6 +60,10 @@ header a:hover {
 video {
   display: flex;
   margin: auto;
+}
+
+.platform {
+  max-width: 20px;
 }
 
 /* Media queries */

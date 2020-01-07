@@ -26,8 +26,24 @@ class Solo{
                     genres += bla.genres[i].name;
                 }
             };
-
-           
+            // Condition couleurs boutons
+            let platformsButton = '';
+            for(let i = 0; i < bla.platforms.length; i++){
+                
+                if(bla.platforms[i].platform.name == "PlayStation 4"){
+                    platformsButton +=`<a class='btn btn-primary btn-lg mr-2 my-4' href="index.php?page=addGame">${ bla.platforms[i].platform.name}</a>`
+                }else if(bla.platforms[i].platform.name == "Xbox One"){
+                    platformsButton +=`<a class='btn btn-success btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
+                }else if (bla.platforms[i].platform.name == "PC"){
+                    platformsButton +=`<a class='btn btn-secondary btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
+                }else if (bla.platforms[i].platform.name == "Nintendo Switch"){
+                    platformsButton +=`<a class='btn btn-danger btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
+                }else{
+                    platformsButton +=`<a class='btn btn-info btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
+                }
+            };
+            
+            
             document.getElementById("solo").innerHTML=`
             <div mb-3'>
                 <h2 class='text-center text-light my-4' id='titre'>${bla.name}</h2>
@@ -58,8 +74,11 @@ class Solo{
                     </div>                           
                 </div>
                 <div class='text-light text-center mt-3'>
-                    <button type="button" class="btn btn-success btn-lg btn-block my-4">Ajouter à votre liste</button>
-                    <p class='text-light' id='platforms'><u>Console: </u>${platforms}</p>
+                    <div class='border border-success rounded'>
+                    <h3 class='text-light text-center'>Pour ajouter le jeu à votre liste, cliquez sur la console correspondante:</h3>
+                    <ul> ${platformsButton}</ul>
+                    </div>
+                    <p class='text-light mt-3' id='platforms'><u>Console: </u>${platforms}</p>
                     <p class='text-light' ><u>Date de sortie:</u> ${bla.released}</p>
                     <p class='text-light' ><u>Développeur:</u> ${bla.developers[0].name}</p>
                     <p class='text-light' ><u>Distributeur:</u> ${bla.publishers[0].name}</p>

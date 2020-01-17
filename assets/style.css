@@ -21,6 +21,10 @@ img {
   width: 60%;
 }
 
+#bar {
+  background-color: #5cb85c;
+}
+
 .nav-link {
   color: white;
   font-size: 17px;

@@ -17,7 +17,7 @@ function inscription()
                 if($pass == $pass2)
                 {
                     $model = new ModelAuth();
-                    if ($model ->pseudoCheck($pseudo)== 0) 
+                    if ($model ->pseudoCheck($pseudo)== 0)
                     {
                         if ($model ->emailCheckInsciption($mail)== 0)
                         {

@@ -7,35 +7,32 @@ class News{
     api = (url) =>{
         //console.log(url);
         ajaxGet(url, (reponse) => {
-            const bla = JSON.parse(reponse);// transforme en objet JavaScript
-            
-            
+            const apiResult = JSON.parse(reponse);// transforme en objet JavaScript
 
-
-           for(let i = 0; i < bla.results.length; i++){ 
-                let fragments = bla.results[i].background_image.split("/");//découpe chaine de carac
-               // console.log(fragments);
+            for(let i = 0; i < apiResult.results.length; i++){ 
+                let fragments = apiResult.results[i].background_image.split("/");//découpe chaine de carac
+                // console.log(fragments);
                 const directory = fragments[fragments.length-2];
                 const file = fragments[fragments.length-1];
                 const image = 'https://media.rawg.io/media/crop/600/400/games/' + directory + "/" + file;
                 //console.log(image);
                 let platforms = '';
-                //console.log(bla.results[i].platforms);
+                //console.log(apiResult.results[i].platforms);
 
-                for(let j = 0; j < bla.results[i].parent_platforms.length; j++){//Déja [i] dans for ....
+                for(let j = 0; j < apiResult.results[i].parent_platforms.length; j++){//Déja [i] dans for ....
 
-                    //platforms += bla.results[i].platforms[j].platform.slug;
-                    platforms +='<img src="assets/'+ bla.results[i].parent_platforms[j].platform.slug + '.png" alt="'+ bla.results[i].parent_platforms[j].platform.name +'" class="platform">';
+                    //platforms += apiResult.results[i].platforms[j].platform.slug;
+                    platforms +='<img src="assets/'+ apiResult.results[i].parent_platforms[j].platform.slug + '.png" alt="'+ apiResult.results[i].parent_platforms[j].platform.name +'" class="platform">';
                 };
                 this.container.innerHTML+=`<div class='card col-lg-3 mr-3 ml-3 mb-3 bg-dark'>
                 <div class ='card-body'>
-                <img src='${image}' class='card-img-top' id='photo-top-${i}' data-try='0' data-directory='${directory}' data-file='${file}'  alt='${bla.results[i].name}'>
-                <h5 class='card-title text-center mt-3 text-light' id='titre'>${bla.results[i].name}</h5>
+                <img src='${image}' class='card-img-top' id='photo-top-${i}' data-try='0' data-directory='${directory}' data-file='${file}'  alt='${apiResult.results[i].name}'>
+                <h5 class='card-title text-center mt-3 text-light' id='titre'>${apiResult.results[i].name}</h5>
                 <p class='text-light'>Console: ${platforms} </p>
-                <p class='text-light'id='date'>Date de sortie: ${bla.results[i].released}</p>
+                <p class='text-light'id='date'>Date de sortie: ${apiResult.results[i].released}</p>
                 
 
-                <a href='index.php?page=details&slug=${bla.results[i].slug}' class='btn btn-success d-flex justify-content-center'>Plus infos</a>
+                <a href='index.php?page=details&slug=${apiResult.results[i].slug}' class='btn btn-success d-flex justify-content-center'>Plus infos</a>
                 </div>
                 </div>
                   `

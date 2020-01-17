@@ -20,6 +20,9 @@ img {
 #search{
     width: 60%;
 }
+#bar{
+    background-color:$success;
+}
 .nav-link{
     color: white;
     font-size: 17px;
@@ -51,8 +54,7 @@ header a{
     max-height: 470px;
     overflow: hidden;
 }
-
-  
+ 
 // API
 video{
     display: flex;

@@ -7,8 +7,8 @@ require_once ('models/Manager.php');
 require_once ('models/modelAuth.php');
 require_once ('models/modelAdmin.php');
 echo $_SESSION['pseudo'];
-try
-{
+//try
+//{
 	if(isset($_GET['page']))
 	{
 		if($_GET['page'] === 'home')
@@ -78,11 +78,11 @@ try
 		{
 			home();
 		}
-}
-catch(Exception $e) 
+//}
+//catch(Exception $e) 
 { 
    $errorMessage = $e->getMessage();
    var_dump($errorMessage);
-   header ('Location: index.php?page=error');	
+   header ('Location: index.php?page=error');
 }
 

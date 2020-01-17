@@ -5,55 +5,45 @@ class Solo{
 
     }
     api = (slug) =>{
-        console.log(slug);
+        //console.log(slug);
         ajaxGet('https://api.rawg.io/api/games/'+ slug, (reponse) => {
-            const bla = JSON.parse(reponse);// transforme en objet JavaScript
-            console.log(bla);
-            let video = bla.clip.clips[320];
+            const apiResult = JSON.parse(reponse);// transforme en objet JavaScript
+            console.log(apiResult);
+            let video = apiResult.clip.clips[320];
+            console.log(video);
+            
             let platforms = '';
-            for(let i = 0; i < bla.platforms.length; i++){
-                if(i<bla.platforms.length-1){
-                    platforms += bla.platforms[i].platform.name +', ';
+            for(let i = 0; i < apiResult.platforms.length; i++){
+                if(i<apiResult.platforms.length-1){
+                    platforms += apiResult.platforms[i].platform.name +', ';
                 }else{
-                    platforms += bla.platforms[i].platform.name;
+                    platforms += apiResult.platforms[i].platform.name;
                 }
             };
             let genres = '';
-            for(let i = 0; i < bla.genres.length; i++){
-                if(i<bla.genres.length-1){
-                    genres += bla.genres[i].name +', ';
+            for(let i = 0; i < apiResult.genres.length; i++){
+                if(i<apiResult.genres.length-1){
+                    genres += apiResult.genres[i].name +', ';
                 }else{
-                    genres += bla.genres[i].name;
+                    genres += apiResult.genres[i].name;
                 }
             };
-            // Condition couleurs boutons
+            // Boucle pour envoyer en GET slug name & platform
             let platformsButton = '';
-            for(let i = 0; i < bla.platforms.length; i++){
-                
-                if(bla.platforms[i].platform.name == "PlayStation 4"){
-                    platformsButton +=`<a class='btn btn-primary btn-lg mr-2 my-4' href="index.php?page=addGame">${ bla.platforms[i].platform.name}</a>`
-                }else if(bla.platforms[i].platform.name == "Xbox One"){
-                    platformsButton +=`<a class='btn btn-success btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
-                }else if (bla.platforms[i].platform.name == "PC"){
-                    platformsButton +=`<a class='btn btn-secondary btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
-                }else if (bla.platforms[i].platform.name == "Nintendo Switch"){
-                    platformsButton +=`<a class='btn btn-danger btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
-                }else{
-                    platformsButton +=`<a class='btn btn-info btn-lg mr-2 my-4'>${ bla.platforms[i].platform.name}</a>`
-                }
+            for(let i = 0; i < apiResult.platforms.length; i++){
+                platformsButton +=`<a href="index.php?page=addGame&game=${apiResult.slug}&platform=${ apiResult.platforms[i].platform.slug}" class='btn btn-info btn-lg mr-2 my-4'>${ apiResult.platforms[i].platform.name}</a>`
             };
-            
-            
+
             document.getElementById("solo").innerHTML=`
-            <div mb-3'>
-                <h2 class='text-center text-light my-4' id='titre'>${bla.name}</h2>
+            <div class='mb-3'>
+                <h2 class='text-center text-light my-4' id='titre'>${apiResult.name}</h2>
                 <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="${bla.background_image}" class="d-block w-100" alt="${bla.name}">
+                            <img src="${apiResult.background_image}" class="d-block w-100" alt="${apiResult.name}">
                         </div>
                         <div class="carousel-item">
-                            <img src="${bla.background_image_additional}" class="d-block w-100" alt="...">
+                            <img src="${apiResult.background_image_additional}" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -67,7 +57,7 @@ class Solo{
                 </div>
                 <div class='row my-5' id='resume'>
                     <div class='text-light m-auto col-lg-6'> 
-                        <p> ${bla.description}</p> 
+                        <p> ${apiResult.description}</p> 
                     </div>
                     <div class='col-lg-5 mt-4' id='video' >
                         ${video!==null?"<video src='"+ video +"' class='mt-4' controls></video>":'Pas de vidéo!'}
@@ -76,14 +66,14 @@ class Solo{
                 <div class='text-light text-center mt-3'>
                     <div class='border border-success rounded'>
                     <h3 class='text-light text-center'>Pour ajouter le jeu à votre liste, cliquez sur la console correspondante:</h3>
-                    <ul> ${platformsButton}</ul>
+                    <div> ${platformsButton}</div>
                     </div>
                     <p class='text-light mt-3' id='platforms'><u>Console: </u>${platforms}</p>
-                    <p class='text-light' ><u>Date de sortie:</u> ${bla.released}</p>
-                    <p class='text-light' ><u>Développeur:</u> ${bla.developers[0].name}</p>
-                    <p class='text-light' ><u>Distributeur:</u> ${bla.publishers[0].name}</p>
+                    <p class='text-light' ><u>Date de sortie:</u> ${apiResult.released}</p>
+                    <p class='text-light' ><u>Développeur:</u> ${apiResult.developers[0].name}</p>
+                    <p class='text-light' ><u>Distributeur:</u> ${apiResult.publishers[0].name}</p>
                     <p class='text-light' ><u>Genres:</u> ${genres}</p>
-                    <p class='text-light' ><u>Note:</u> ${bla.rating}/5</p>
+                    <p class='text-light' ><u>Note:</u> ${apiResult.rating}/5</p>
                 </div>  
             </div>
                 ` 

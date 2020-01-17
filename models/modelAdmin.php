@@ -9,11 +9,25 @@ class ModelAdmin extends Manager
             $result = $req -> fetchAll();
             return $result;
         }
-    public function addGame($id, $titre, $descrition, $rating, $developers, $publishers, $genres, $date_add)
+    public function getPlatforms()
+        {
+            $db = $this -> dbConnect();
+            $req = $db->query('SELECT * FROM platforms');
+            $result = $req -> fetchAll();
+            return $result;
+        }
+    public function addGame($title, $description, $rating, $developers, $publishers, $genres, $slug)
     {
         $db = $this -> dbConnect();
-        $req = $db -> prepare('INSERT INTO games (id, titre, descrition, rating, developers, publishers, genres, date_add) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())');
-        $result = $req -> execute(array($id, $name, $descrition, $rating, $developers, $publishers, $genres));
+        $req = $db -> prepare('INSERT INTO games (title, description, rating, developers, publishers, genres, slug, date_add) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())');
+        $result = $req -> execute(array($title, $description, $rating, $developers, $publishers, $genres, $slug));
+        return $result;
+    }
+    public function addPlatform($slug, $name)
+    {
+        $db = $this -> dbConnect();
+        $req = $db -> prepare('INSERT INTO platforms (slug, name) VALUES (?, ?)');
+        $result = $req -> execute(array($slug, $name));
         return $result;
     }
     public function deleteGame($id)

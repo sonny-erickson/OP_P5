@@ -97,7 +97,7 @@ function connectionSend()
                 //var_dump($isPassCorrect); die();
                 if ($isPassCorrect)
                 {
-                    $_SESSION['id_member'] = $user['id_member'];
+                    $_SESSION['id'] = $user['id'];
                     $_SESSION['pseudo'] = $user['pseudo'];
                     $_SESSION['rang'] = $user['rang'];
                 }

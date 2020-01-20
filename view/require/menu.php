@@ -25,7 +25,7 @@
             <li class="nav-item">
               <a class="nav-link " href="index.php?page=news">Nouveautés</a>
             </li>
-            <?php if(isset($_SESSION['id_member'])): ?>
+            <?php if(isset($_SESSION['pseudo'])): ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Profil
@@ -36,7 +36,7 @@
             </li>
             <?php endif;?>
             
-            <?php if(isset($_SESSION['id_member'])): ?>
+            <?php if(isset($_SESSION['pseudo'])): ?>
               <li><a class="nav-link text-danger"  href="index.php?page=deconnexion">Deconnexion</a></li>
             <?php else:?>
               <li class="nav-item dropdown">
@@ -66,7 +66,7 @@
       <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>-->
       <div id='list'></div><!-- For beautiful list under-->
       </form>
-      <?php if(isset($_SESSION['id_member'])):?>
+      <?php if(isset($_SESSION['pseudo'])):?>
               <div class="container-fluid text-light text-center" id="bar"> Bienvenue <?= $_SESSION['pseudo'] ?></div>
       <?php endif;?>
     </div>

@@ -33,7 +33,12 @@
 						<td><a class="btn btn-info btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=details&&amp;slug=<?= $post['slug']?>" >Détails</a></td>
 					</tr>
 				</tbody>
-				<?php endforeach; ?>
+				<?php 
+			endforeach;
+			echo('<pre>');
+				var_dump($platforms);
+				echo('<pre>');
+			?>
 			</table>
 		</div>
 	</div>

@@ -67,14 +67,14 @@ class Solo{
                 <div class='text-light text-center mt-3'>
                     <div class='border border-success rounded'>
                     <h3 class='text-light text-center'>Pour ajouter le jeu à votre liste, cliquez sur la console correspondante:</h3>
-                    <div> ${platformsButton}</div>
+                    <div class='d-flex justify-content-center'> ${platformsButton}</div>
                     </div>
-                    <p class='text-light mt-3' id='platforms'><u>Console: </u>${platforms}</p>
-                    <p class='text-light' ><u>Date de sortie:</u> ${apiResult.released}</p>
-                    <p class='text-light' ><u>Développeur:</u> ${apiResult.developers[0].name}</p>
-                    <p class='text-light' ><u>Distributeur:</u> ${apiResult.publishers[0].name}</p>
-                    <p class='text-light' ><u>Genres:</u> ${genres}</p>
-                    <p class='text-light' ><u>Note:</u> ${apiResult.rating}/5</p>
+                    <p class='text-light text-center mt-3' id='platforms'><u>Console: </u>${platforms}</p>
+                    <p class='text-light text-center' ><u>Date de sortie:</u> ${apiResult.released}</p>
+                    <p class='text-light text-center' ><u>Développeur:</u> ${apiResult.developers[0].name}</p>
+                    <p class='text-light text-center' ><u>Distributeur:</u> ${apiResult.publishers[0].name}</p>
+                    <p class='text-light text-center' ><u>Genres:</u> ${genres}</p>
+                    <p class='text-light text-center' ><u>Note:</u> ${apiResult.rating}/5</p>
                 </div>  
             </div>
                 ` 

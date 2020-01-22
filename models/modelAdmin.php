@@ -16,7 +16,7 @@ class ModelAdmin extends Manager
             $db = $this -> dbConnect();
             $req = $db->query(
             '   SELECT * FROM liaison l 
-                INNER JOIN members m ON l.id_members = m.id
+                INNER JOIN members m ON l.id_members = m.member_id
                 INNER JOIN games g ON l.id_games=g.game_id
                 INNER JOIN platforms p ON l.id_platforms=p.id');
             $result = $req -> fetchAll();
@@ -60,11 +60,12 @@ class ModelAdmin extends Manager
             $result = $req -> execute(array($id_members, $id_games, $id_platforms));
             return $result;
         }
-    public function deleteGame($id)
+    //si supprime un jeu, seul le jeu d'une seule platform est supprimé
+    public function deleteGame($game_id,$id)
         {
             $db = $this -> dbConnect();
-            $req = $db->prepare('DELETE FROM games WHERE game_id = ?');
-            $req->execute(array($id));
+            $req = $db->prepare('DELETE FROM liaison WHERE id_games=? AND id_platforms=?');
+            $req->execute(array($game_id,$id));
             return $result;
         }
 }

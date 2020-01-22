@@ -80,12 +80,12 @@ function addGame()
 // echo('</pre>');die();
 }
    
-function deleteGame($id)
+function deleteGame($game_id,$id)
 {
-    if(isset($id) AND !empty($id))  
+    if(isset($id) AND !empty($id) AND isset($game_id) AND !empty($game_id))  
     {
         $modelAdmin = new ModelAdmin();
-        $modelAdmin -> deleteGame($id);
+        $modelAdmin -> deleteGame($game_id,$id);
         header("Location: index.php?page=listing");
     }  
 }

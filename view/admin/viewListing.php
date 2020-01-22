@@ -35,7 +35,7 @@ if(isset($alreadyGame))
 						<td><?= htmlspecialchars($link['name']); ?></td>
 						<td><?= htmlspecialchars($link['rating']); ?></td>
 						<td><?= htmlspecialchars($link['date_add']); ?></td>
-						<td><a class="btn btn-danger btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=deleteGame&amp;id=<?= $link['game_id']?>" onclick =" return confirm('Etes-vous sûr ?')" >Effacer</a></td>
+						<td><a class="btn btn-danger btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=deleteGame&amp;id_game=<?= $link['game_id']?>&amp;id_plat=<?= $link['id']?>" onclick =" return confirm('Etes-vous sûr ?')" >Effacer</a></td>
 						<td><a class="btn btn-info btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=details&amp;slug=<?= $link['slug_game']?>" >Détails</a></td>
 					</tr>
 				</tbody>

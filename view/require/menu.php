@@ -35,7 +35,6 @@
               </div>
             </li>
             <?php endif;?>
-            
             <?php if(isset($_SESSION['pseudo'])): ?>
               <li><a class="nav-link text-danger"  href="index.php?page=deconnexion">Deconnexion</a></li>
             <?php else:?>

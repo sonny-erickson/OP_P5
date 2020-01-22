@@ -9,8 +9,8 @@ require_once ('models/modelAdmin.php');
 var_dump($_SESSION['pseudo']);
 var_dump($_SESSION['id']);
 
-try
-{
+//try
+//{
 	if(isset($_GET['page']))
 	{
 		if($_GET['page'] === 'home')
@@ -69,7 +69,7 @@ try
 		}
 		else if($_GET['page'] === 'deleteGame')
 		{
-			deleteGame($_GET['id']);
+			deleteGame($_GET['id_game'], $_GET['id_plat']);
 		}
 		// else if($_GET['page'] === "route")
 	    // {
@@ -80,8 +80,8 @@ try
 		{
 			home();
 		}
-}
-catch(Exception $e) 
+//}
+//catch(Exception $e) 
 { 
    $errorMessage = $e->getMessage();
    var_dump($errorMessage);

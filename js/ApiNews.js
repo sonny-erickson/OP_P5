@@ -38,14 +38,14 @@ class News{
                   `
                 // En cas d'erreur et que l'image ne s'affiche pas (changement du src ou img du logo)
                 document.getElementById('photo-top-'+i).addEventListener('error',e => {
-                    //alert('blabla');
+                    console.log('photo-top-'+i);
                     const directory = e.target.getAttribute('data-directory');
                     const file = e.target.getAttribute('data-file');
                     let tries = Number(e.target.getAttribute('data-try'))+1;
                     e.target.setAttribute('data-try',tries);
-                    //console.log(tries);
+                    console.log(tries);
                     if(tries==1){
-                        e.target.src = 'https://media.rawg.io/media/crop/600/400/screenshots/' + directory + "/" + file;
+                     e.target.src = 'https://media.rawg.io/media/crop/600/400/screenshots/' + directory + "/" + file;
                     }else{
                         e.target.src = 'assets/logo.png';
                     }

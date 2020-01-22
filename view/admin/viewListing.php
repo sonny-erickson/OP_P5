@@ -4,6 +4,12 @@
 <div class="text-center">
 	<h1 class="mt-4 text-light">Liste de vos jeux</h1>
 </div>
+<?php
+if(isset($alreadyGame))
+	{
+		echo '<div class="container alert alert-danger text-center" role="alert">'.$alreadyGame.'</div>';
+	}       
+?>
 <div class="row">
 	<div class="container mt-4">
 		<div class="table-responsive">
@@ -20,24 +26,24 @@
 						<th scope="col text-center">Infos</th>
 					</tr>
 				</thead>
-				<?php foreach ($posts as $post):?>
+				<?php foreach ($links as $link):?>
 				<tbody class="table-light">
 					<tr>
-						<th><?= htmlspecialchars($post['id']); ?></th>
-						<td><?= (substr(strip_tags(htmlspecialchars($post['title'])),0,20)); ?></td>
-						<td><?= htmlspecialchars($post['genres']); ?></td>
-						<td></td>
-						<td><?= htmlspecialchars($post['rating']); ?></td>
-						<td><?= htmlspecialchars($post['date_add']); ?></td>
-						<td><a class="btn btn-danger btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=deleteGame&amp;id=<?= $post['id']?>" onclick =" return confirm('Etes-vous sûr ?')" >Effacer</a></td>
-						<td><a class="btn btn-info btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=details&&amp;slug=<?= $post['slug']?>" >Détails</a></td>
+						<th><?= htmlspecialchars($link['id_games']); ?></th>
+						<td><?= (substr(strip_tags(htmlspecialchars($link['title'])),0,20)); ?></td>
+						<td><?= htmlspecialchars($link['genres']); ?></td>
+						<td><?= htmlspecialchars($link['name']); ?></td>
+						<td><?= htmlspecialchars($link['rating']); ?></td>
+						<td><?= htmlspecialchars($link['date_add']); ?></td>
+						<td><a class="btn btn-danger btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=deleteGame&amp;id=<?= $link['game_id']?>" onclick =" return confirm('Etes-vous sûr ?')" >Effacer</a></td>
+						<td><a class="btn btn-info btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=details&amp;slug=<?= $link['slug_game']?>" >Détails</a></td>
 					</tr>
 				</tbody>
 				<?php 
 			endforeach;
-			echo('<pre>');
-				var_dump($platforms);
-				echo('<pre>');
+			// echo('<pre>');
+			// 	var_dump($platforms);
+			// 	echo('<pre>');
 			?>
 			</table>
 		</div>

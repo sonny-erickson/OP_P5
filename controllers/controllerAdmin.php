@@ -3,9 +3,6 @@
 function listing()
 {
 	$model = new ModelAdmin();
-    $posts = $model -> getGames();
-    $platforms = $model -> getPlatforms();
-
     $links = $model -> getLinks();
 	require ('view/admin/viewListing.php');
 }
@@ -37,7 +34,7 @@ function addGame()
         $gameId=$modelAdmin->addGame($title, $description, $rating, $developers, $publishers, $genres, $slug);
     }else{
         // récup l'id du jeu
-        $gameId=$game['id'];
+        $gameId=$game['game_id'];
     }
     if(!$platform){
         // platform inexsistant= ajout bdd
@@ -64,12 +61,15 @@ function addGame()
     var_dump($platformId);
 
     //Ajout à la table liaison
-    if(!$link){
+    try{
+        if(!$link){
         $modelAdmin->addLink($_SESSION['id'], $gameId, $platformId);
         header("Location: index.php?page=listing");  
-    }
-else{
-    echo'jeu deja ds votre liste';
+        }
+    }catch(Exception $e){
+    $alreadyGame = 'Jeu déja existant sur cette console !';
+    header("Location: index.php?page=listing"); 
+    
 }
   
     //todo: creer la liasion membre jeu plat

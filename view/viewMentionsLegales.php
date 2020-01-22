@@ -1,6 +1,6 @@
 <?php $title = 'Mentions légales'; ?>
 <?php ob_start() ?>
-  <div class="container text-dark mb-4 ">
+  <div class="container text-light mb-4 ">
     <h2 class="text-center mt-5 mb-5">MENTIONS LEGALES :</h2>
     <p class="text-justify">Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site : www.agence-de-tourisme-strasbourg.webagency-sonny.fr les informations suivantes :</p>
     <p class="text-justify"><strong>1. Informations légales :</strong></p>

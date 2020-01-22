@@ -63,6 +63,7 @@ class Solo{
                         ${video!==null?"<video src='"+ video +"' class='mt-4' controls></video>":'Pas de vidéo!'}
                     </div>                           
                 </div>
+                <?php           
                 <div class='text-light text-center mt-3'>
                     <div class='border border-success rounded'>
                     <h3 class='text-light text-center'>Pour ajouter le jeu à votre liste, cliquez sur la console correspondante:</h3>

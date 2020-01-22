@@ -9,8 +9,8 @@ require_once ('models/modelAdmin.php');
 var_dump($_SESSION['pseudo']);
 var_dump($_SESSION['id']);
 
-//try
-//{
+try
+{
 	if(isset($_GET['page']))
 	{
 		if($_GET['page'] === 'home')
@@ -80,8 +80,8 @@ var_dump($_SESSION['id']);
 		{
 			home();
 		}
-//}
-//catch(Exception $e) 
+}
+catch(Exception $e) 
 { 
    $errorMessage = $e->getMessage();
    var_dump($errorMessage);

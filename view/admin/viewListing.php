@@ -5,8 +5,9 @@
 	<h1 class="mt-4 text-light">Liste de vos jeux</h1>
 </div>
 <?php
+
 if(isset($alreadyGame))
-	{
+	{var_dump($alreadyGame);
 		echo '<div class="container alert alert-danger text-center" role="alert">'.$alreadyGame.'</div>';
 	}       
 ?>
@@ -29,7 +30,9 @@ if(isset($alreadyGame))
 				<?php foreach ($links as $link):?>
 				<tbody class="table-light">
 					<tr>
-						<th><?= htmlspecialchars($link['id_games']); ?></th>
+						<th><?=$i=1,$i<$link,$i++
+
+						?></th>
 						<td><?= (substr(strip_tags(htmlspecialchars($link['title'])),0,20)); ?></td>
 						<td><?= htmlspecialchars($link['genres']); ?></td>
 						<td><?= htmlspecialchars($link['name']); ?></td>

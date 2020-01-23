@@ -6,8 +6,7 @@ require_once ('controllers/controllerAdmin.php');
 require_once ('models/Manager.php');
 require_once ('models/modelAuth.php');
 require_once ('models/modelAdmin.php');
-var_dump($_SESSION['pseudo']);
-var_dump($_SESSION['id']);
+var_dump($_SESSION);
 
 //try
 //{

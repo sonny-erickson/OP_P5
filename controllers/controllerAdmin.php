@@ -1,5 +1,4 @@
 <?php
-
 function listing()
 {
 	$model = new ModelAdmin();
@@ -9,17 +8,12 @@ function listing()
 
 function addGame()
 {   
-    //1 verif si jeu existe deja ds table games // bool true
-    //2 verif si plat exist deja ds table platforms
-    //3 si c'est pas le cas  il faut crer jeu et platform dans la bdd (recup info jeu)
-    //4 ds tout les cas ajouter le jeu a la liste du membre
-    //5 pont: 
-
     $modelAdmin = new ModelAdmin();
     $game= $modelAdmin->getGame($_GET['game']);
     $platform= $modelAdmin->getPlatform($_GET['platform']);
     $link=$modelAdmin->getLink($_GET['game'],$_GET['platform']);
     $gameCheck=null;
+    
     //var_dump($game);
     if(!$game){
         // jeu inexsistant= ajout bdd
@@ -58,7 +52,7 @@ function addGame()
     }
     var_dump($_SESSION['id']);
     var_dump($gameId);
-    var_dump($platformId);
+    var_dump($platformId);die();
 
     //Ajout à la table liaison
     try{
@@ -89,6 +83,5 @@ function deleteGame($game_id,$id)
         header("Location: index.php?page=listing");
     }  
 }
-
 
 

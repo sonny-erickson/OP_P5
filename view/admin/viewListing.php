@@ -27,12 +27,12 @@ if(isset($alreadyGame))
 						<th scope="col text-center">Infos</th>
 					</tr>
 				</thead>
-				<?php foreach ($links as $link):?>
+				
 				<tbody class="table-light">
+				<?php $i=1;
+				while ($link = $links->fetch()){?>
 					<tr>
-						<th><?=$i=1,$i<$link,$i++
-
-						?></th>
+						<td><?= $i ?></td>
 						<td><?= (substr(strip_tags(htmlspecialchars($link['title'])),0,20)); ?></td>
 						<td><?= htmlspecialchars($link['genres']); ?></td>
 						<td><?= htmlspecialchars($link['name']); ?></td>
@@ -41,13 +41,9 @@ if(isset($alreadyGame))
 						<td><a class="btn btn-danger btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=deleteGame&amp;id_game=<?= $link['game_id']?>&amp;id_plat=<?= $link['id']?>" onclick =" return confirm('Etes-vous sûr ?')" >Effacer</a></td>
 						<td><a class="btn btn-info btn-sm mt-1"  style="width: 75px;height: 31px;font-size: 13px;" href="index.php?page=details&amp;slug=<?= $link['slug_game']?>" >Détails</a></td>
 					</tr>
+				<?php $i++; } ?>
 				</tbody>
-				<?php 
-			endforeach;
-			// echo('<pre>');
-			// 	var_dump($platforms);
-			// 	echo('<pre>');
-			?>
+		
 			</table>
 		</div>
 	</div>

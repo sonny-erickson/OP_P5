@@ -11,18 +11,6 @@
 	  	Projet PHP
 	  <?php endif ?>
 	  </title>
-	  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-	  <script src="https://cdn.tiny.cloud/1/gn3qzvlvva4r85v1bgn4yi9ywwhsm4mx2i7m2z0qqjxdwvyb/tinymce/5/tinymce.min.js"></script>
-		<script>tinymce.init
-		({
-			selector:'#mytextarea',
-			language:'fr_FR',
-			entity_encoding : "raw",
-			forced_root_block : false,
-            force_br_newlines : true,
-            force_p_newlines : false,
-		});
-	  </script>
 	  <script src="js/Ajax.js"></script>
 	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
                 integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"

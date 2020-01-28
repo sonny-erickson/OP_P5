@@ -9,7 +9,15 @@ class Solo{
         ajaxGet('https://api.rawg.io/api/games/'+ slug, (reponse) => {
             const apiResult = JSON.parse(reponse);// transforme en objet JavaScript
             console.log(apiResult);
+            // media queries pour js
+            
             let video = apiResult.clip.clips[320];
+            // if (window.matchMedia("(max-width: 700px)").matches){
+            //     video='je fais 320';
+            // }else{
+            //     video='je fais 640';
+            // }
+                  
             console.log(video);
             
             let platforms = '';
@@ -40,10 +48,10 @@ class Solo{
                 <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="${apiResult.background_image}" class="d-block w-100" alt="${apiResult.name}">
+                            <img src="${apiResult.background_image}" class="imgSolo" alt="${apiResult.name}">
                         </div>
                         <div class="carousel-item">
-                            <img src="${apiResult.background_image_additional}" class="d-block w-100" alt="...">
+                            <img src="${apiResult.background_image_additional}" class="imgSolo" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -67,7 +75,7 @@ class Solo{
                 <div class='text-light text-center mt-3'>
                     <div class='border border-success rounded'>
                     <h3 class='text-light text-center'>Pour ajouter le jeu à votre liste, cliquez sur la console correspondante:</h3>
-                    <div class='d-flex justify-content-center'> ${platformsButton}</div>
+                    <div class='d-flex justify-content-center flex-wrap'> ${platformsButton}</div>
                     </div>
                     <p class='text-light text-center mt-3' id='platforms'><u>Console: </u>${platforms}</p>
                     <p class='text-light text-center' ><u>Date de sortie:</u> ${apiResult.released}</p>

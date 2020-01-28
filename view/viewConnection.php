@@ -14,13 +14,13 @@
       <div class="row d-flex justify-content-center">
         <div class="form-group pb-2">
           <label for="exampleInputEmail1">Adresse Mail</label>
-          <input type="email" name="mailConnect" class="form-control" id="exampleInputEmail1" placeholder="Entrez votre identifiant" >
+          <input type="email" name="mailConnect" class="form-control" id="exampleInputEmail1" placeholder="Entrez votre identifiant" value="123@hotmail.fr">
         </div>
       </div>
       <div class="row d-flex justify-content-center pb-3">
         <div class="form-group">
             <label for="exampleInputPassword1">Mot de passe</label>
-            <input type="password" name="passConnect" class="form-control" id="exampleInputPassword1" placeholder="Entrez le mot de passe" >
+            <input type="password" name="passConnect" class="form-control" id="exampleInputPassword1" placeholder="Entrez le mot de passe" value="1234" >
         </div>
       </div>
       <div class="row d-flex justify-content-center pb-3">

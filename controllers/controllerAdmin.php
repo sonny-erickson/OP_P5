@@ -2,7 +2,7 @@
 function listing()
 {
 	$model = new ModelAdmin();
-    $links = $model -> getLinks();
+    $links = $model -> getLinks($_SESSION['id']);
 	require ('view/admin/viewListing.php');
 }
 
@@ -50,11 +50,11 @@ function addGame()
         //récup l'id de la plat
         $platformId=$platform['id'];
     }
-    var_dump($_SESSION['id']);
-    var_dump($gameId);
-    var_dump($platformId);die();
+    // var_dump($_SESSION['id']);
+    // var_dump($gameId);
+    // var_dump($platformId);
 
-    //Ajout à la table liaison
+    //Ajout à la table liaison avec exceptions
     try{
         if(!$link){
         $modelAdmin->addLink($_SESSION['id'], $gameId, $platformId);

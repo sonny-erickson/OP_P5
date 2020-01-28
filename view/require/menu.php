@@ -4,9 +4,8 @@
     <div class="row mb-3" id="header">
       <img src="assets/logo.png" alt="logo manette">    
     </div>
+
     <div class="row mb-3" >
-    
-      
       <nav class="navbar navbar-expand-md bg-dark navbar-light">
         <!-- Toggler/collapsibe Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -48,27 +47,20 @@
                   <a class="dropdown-item text-danger" href="index.php?page=deconnexion">Deconnexion</a>
                 </div>
               </li>
-
-              <?php endif;?>
-             
-            
-           
-            
-            
+            <?php endif;?> 
           </ul>
         </div>
       </nav>
     </div>
+      <!-- Tout ce qui concerne le HTML de la barre de recherche-->
     <div class="row pb-4">
       <form class="form-inline mb-3" id="search-form" >
-      <input class="form-control mr-2" id="search" type="search" placeholder="Recherche" aria-label="Search">
-      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>-->
-      <div id='list'></div><!-- For beautiful list under-->
+      <input class="form-control mr-2" id="search" type="search" placeholder="Recherche" aria-label="Search"><br>
+      <div id='list'></div>
       </form>
       <?php if(isset($_SESSION['pseudo'])):?>
               <div class="container-fluid text-light text-center" id="bar"> Bienvenue <?= $_SESSION['pseudo'] ?></div>
       <?php endif;?>
     </div>
   </div>
-  <script src="js/search.js"></script>
 </header>

@@ -4,14 +4,9 @@
     <h1 class="text-center text-light"> Les nouveautés 2020</h1>
     <p class="text-light text-center">Voici une liste des jeux les plus attendus pour l'année 2020</p>
     <div>
-    
       <div class="container-fluid">
-        <div class="row" id="news" >
-         
-        </div>
-      </div> 
-
-          
-  </div> 
+        <div class="row" id="news" > </div>
+      </div>      
+    </div> 
       <?php $content = ob_get_clean(); ?>
     <?php require ("view/template.php"); ?>

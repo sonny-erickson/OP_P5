@@ -1,5 +1,5 @@
 <footer>
-  <div class="container-fluid bg-dark">
+  <div class="container-fluid bg-dark" id="foot">
     <h5 class="pt-3 text-center text-light border-bottom border-light">Vous pouvez aussi me suivre sur  :</h5>     
     <div class="row">
       <div class="d-flex justify-content-center">

@@ -6,10 +6,12 @@ require_once ('controllers/controllerAdmin.php');
 require_once ('models/Manager.php');
 require_once ('models/modelAuth.php');
 require_once ('models/modelAdmin.php');
-var_dump($_SESSION);
+var_dump($_SESSION['id']);
+var_dump($_SESSION['id']);
 
-//try
-//{
+
+try
+{
 	if(isset($_GET['page']))
 	{
 		if($_GET['page'] === 'home')
@@ -79,11 +81,10 @@ var_dump($_SESSION);
 		{
 			home();
 		}
-//}
-//catch(Exception $e) 
+}
+catch(Exception $e) 
 { 
    $errorMessage = $e->getMessage();
-   var_dump($errorMessage);
    header ('Location: index.php?page=error');
 }
 

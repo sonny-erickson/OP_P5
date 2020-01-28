@@ -11,18 +11,37 @@ class ModelAdmin extends Manager
         $result = $req -> fetch();
         return $result;
     }
-    public function getLinks()
+    public function getMember($id_members)
     {
         $db = $this -> dbConnect();
-        $req = $db->query(
-        '   SELECT * FROM liaison l 
-            INNER JOIN members m ON l.id_members = m.member_id
-            INNER JOIN games g ON l.id_games=g.game_id
-            INNER JOIN platforms p ON l.id_platforms=p.id');
-        $result = $req -> fetchAll();
-        //var_dump($result);die();
+        $req = $db->prepare('SELECT * FROM member WHERE member_id=?');
+        $result = $req -> execute(array($id_members));
+        $result = $req -> fetch();
         return $result;
     }
+    // public function getLinks()
+    // {
+    //     $db = $this -> dbConnect();
+    //     $req = $db->query(
+    //     '   SELECT * FROM liaison l 
+    //         INNER JOIN members m ON l.id_members = m.member_id
+    //         INNER JOIN games g ON l.id_games=g.game_id
+    //         INNER JOIN platforms p ON l.id_platforms=p.id');
+    //     $result = $req -> fetchAll();
+    //     //var_dump($result);die();
+    //     return $result;
+    // }
+    public function getLinks($idUser)
+    {
+	 $db = $this -> dbConnect();
+	$req = $db->prepare('SELECT * FROM liaison l 
+            INNER JOIN games g ON l.id_games=g.game_id
+            INNER JOIN platforms p ON l.id_platforms=p.id
+            WHERE id_members=?');
+	 $results = $req -> execute(array($idUser));
+        // $result = $req -> fetch();
+        return $req;
+     }
     public function getLink($id_games, $id_platforms)
     {
         $db = $this -> dbConnect();

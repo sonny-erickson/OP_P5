@@ -85,7 +85,7 @@ function connectionSend()
         {
             $model = new ModelAuth();
             $user = $model->emailCheckConnection($mailConnect);
-
+            //var_dump($user); die();
             // vérif le pass
             if (!$user) 
             {
@@ -97,9 +97,8 @@ function connectionSend()
                 //var_dump($isPassCorrect); die();
                 if ($isPassCorrect)
                 {
-                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['id'] = $user['member_id'];
                     $_SESSION['pseudo'] = $user['pseudo'];
-                    $_SESSION['rang'] = $user['rang'];
                 }
                 else
                 {

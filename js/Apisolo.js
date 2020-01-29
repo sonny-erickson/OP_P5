@@ -11,14 +11,15 @@ class Solo{
             console.log(apiResult);
             // media queries pour js
             
-            let video = apiResult.clip.clips[320];
+            let video = apiResult.clip;
+            //apiResult.clip.clips[320];
             // if (window.matchMedia("(max-width: 700px)").matches){
             //     video='je fais 320';
             // }else{
             //     video='je fais 640';
             // }
                   
-            console.log(video);
+            console.log(apiResult);
             
             let platforms = '';
             for(let i = 0; i < apiResult.platforms.length; i++){
@@ -48,10 +49,10 @@ class Solo{
                 <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="${apiResult.background_image}" class="imgSolo" alt="${apiResult.name}">
+                            <img src="${apiResult.background_image}" class="imgSolo d-block w-100" alt="${apiResult.name}">
                         </div>
                         <div class="carousel-item">
-                            <img src="${apiResult.background_image_additional}" class="imgSolo" alt="...">
+                            <img src="${apiResult.background_image_additional}" class="imgSolo d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -68,7 +69,7 @@ class Solo{
                         <p> ${apiResult.description}</p> 
                     </div>
                     <div class='col-lg-5 mt-4' id='video' >
-                        ${video!==null?"<video src='"+ video +"' class='mt-4' controls></video>":'Pas de vidéo!'}
+                        ${video!==null?"<video src='"+ video.clips[320] +"' class='mt-4' controls></video>":'Pas de vidéo!'}
                     </div>                           
                 </div>
                 <?php           

@@ -80,6 +80,11 @@ header a:hover {
   overflow: hidden;
 }
 
+#carouselExampleControls {
+  display: flex;
+  justify-content: center;
+}
+
 video {
   display: flex;
   margin: auto;

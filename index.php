@@ -1,15 +1,9 @@
 <?php 
 session_start();
+require ('vendor/autoload.php');
 require_once ('controllers/controller.php');
 require_once ('controllers/controllerAuth.php');
 require_once ('controllers/controllerAdmin.php');
-require_once ('models/Manager.php');
-require_once ('models/modelAuth.php');
-require_once ('models/modelAdmin.php');
-var_dump($_SESSION['id']);
-var_dump($_SESSION['id']);
-
-
 try
 {
 	if(isset($_GET['page']))
@@ -18,11 +12,11 @@ try
 		{
 			home();
 		}
-		if($_GET['page'] === 'top')
+		else if($_GET['page'] === 'top')
 		{
 			top();
 		}
-		if($_GET['page'] === 'news')
+		else if($_GET['page'] === 'news')
 		{
 			news();
 		}
@@ -72,6 +66,11 @@ try
 		{
 			deleteGame($_GET['id_game'], $_GET['id_plat']);
 		}
+		else
+		{
+			home();
+		}
+		
 		// else if($_GET['page'] === "route")
 	    // {
 	    //     controlleur();
@@ -85,6 +84,7 @@ try
 catch(Exception $e) 
 { 
    $errorMessage = $e->getMessage();
-   header ('Location: index.php?page=error');
+   //header ('Location: index.php?page=error');
+   echo($errorMessage);
 }
 

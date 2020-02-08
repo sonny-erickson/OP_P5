@@ -1,6 +1,7 @@
 <?php
 // INSCRIPTION PAGE
-class ModelAuth extends Manager
+namespace Model;
+class ModelAuth extends Manager 
 {
         // check pseudo and mail un db for inscription
     public function pseudoCheck($pseudo)

@@ -16,7 +16,7 @@ function inscription()
                 $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
                 if($pass == $pass2)
                 {
-                    $model = new ModelAuth();
+                    $model = new Model\ModelAuth();
                     if ($model ->pseudoCheck($pseudo)== 0)
                     {
                         if ($model ->emailCheckInsciption($mail)== 0)
@@ -24,6 +24,7 @@ function inscription()
                             if(strlen($pseudo)<=255)
                             {
                                 $model ->addUser($pseudo, $pass_hache, $mail);
+                                $accept = 'Inscription good';
                                 Header("Location:index.php?page=connection"); 
                             }
                             else
@@ -83,7 +84,7 @@ function connectionSend()
         $passConnect = htmlspecialchars($_POST['passConnect']);   
         if(!empty($_POST['mailConnect']) AND !empty($_POST['passConnect']))
         {
-            $model = new ModelAuth();
+            $model = new Model\ModelAuth();
             $user = $model->emailCheckConnection($mailConnect);
             //var_dump($user); die();
             // vérif le pass

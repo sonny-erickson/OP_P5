@@ -20,6 +20,7 @@ class Search{
                 };
                 console.log(games);
                 if(search.value.length>0){
+                    list.innerHTML='';
                     for(let i =0; i<games.length; i++){
                     //todo alimenter la liste 
                         list.innerHTML+=`
@@ -27,8 +28,6 @@ class Search{
                                 <a class="pl-2 text-dark shadow-sm" id="aListGroup" href='index.php?page=details&slug=${games[i].slug}' class="list-group-item">${games[i].name}</a>
                             </div>
                             `
-                            console.log(games[i].slug);
-                
                     }
                 }       
             });

@@ -36,6 +36,14 @@ img {
   text-decoration: none;
 }
 
+.dropdown-menu:hover {
+  background-color: #5cb85c;
+}
+
+.dropdown-item {
+  font-size: 15px;
+}
+
 #bar {
   background-color: #5cb85c;
 }
@@ -85,6 +93,14 @@ header a:hover {
   justify-content: center;
 }
 
+.table-light {
+  font-size: 12px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
 video {
   display: flex;
   margin: auto;
@@ -109,6 +125,18 @@ video {
 
   .nav-link {
     font-size: 30px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  .dropdown-item {
+    font-size: 25px;
+  }
+
+  .table-light {
+    font-size: 16px;
   }
 }
 @media (min-width: 1024px) {

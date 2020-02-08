@@ -18,22 +18,22 @@
             <li class="nav-item">
               <a class="nav-link" href="index.php?page=home">Accueil</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link " href="index.php?page=top">Top</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="index.php?page=news">Nouveautés</a>
-            </li>
             <?php if(isset($_SESSION['pseudo'])): ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Profil
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="index.php?page=listing">Ma liste de jeux</a>
+                <a class="dropdown-item" href="index.php?page=listing&num=0">Ma liste de jeux</a>
               </div>
             </li>
             <?php endif;?>
+            <li class="nav-item">
+              <a class="nav-link " href="index.php?page=top">Top</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="index.php?page=news">Nouveautés</a>
+            </li>
             <?php if(isset($_SESSION['pseudo'])): ?>
               <li><a class="nav-link text-danger"  href="index.php?page=deconnexion">Deconnexion</a></li>
             <?php else:?>
@@ -44,7 +44,9 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item text-success" href="index.php?page=inscription">S'inscrire</a>
                   <a class="dropdown-item text-warning" href="index.php?page=connection">Connection</a>
+                  <?php if(isset($_SESSION['pseudo'])): ?>
                   <a class="dropdown-item text-danger" href="index.php?page=deconnexion">Deconnexion</a>
+                  <?php endif;?> 
                 </div>
               </li>
             <?php endif;?> 

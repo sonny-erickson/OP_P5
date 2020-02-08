@@ -33,7 +33,12 @@ img {
         text-decoration: none;
     }
 }
-
+.dropdown-menu:hover{
+    background-color: $success; 
+}
+.dropdown-item{
+    font-size: 15px;
+}
 #bar{
     background-color:$success;
 }
@@ -59,7 +64,6 @@ header a{
 }
 #foot{
     background: url('../assets/playfoot.jpg') top center fixed ;
-  
 }
 #home p{
     color: white;
@@ -76,14 +80,21 @@ header a{
    display: flex;
    justify-content: center;
 }
+//listing
+.table-light{
+    font-size: 12px;
+}
 // API
+h3{
+    font-size: 20px;
+}
 video{
     display: flex;
     margin: auto;
-  }
-  .platform{
-      max-width: 20px;
-  }
+}
+.platform{
+    max-width: 20px;
+}
  /* .imgSolo{
      regler taille img solo
   } */
@@ -99,6 +110,16 @@ video{
     .nav-link{
         font-size: 30px;
     }
+    h3{
+        font-size: 30px;
+    }
+    .dropdown-item{
+        font-size: 25px;
+    }
+    //listing
+    .table-light{
+        font-size: 16px;
+    }
 }
 @media (min-width: 1024px){
     #search,#list{
@@ -108,7 +129,7 @@ video{
         font-size: 40px;
     }
     #carouselExampleControls{
-        max-width: 1500px;
+        max-width: 1300px;
         margin: auto;
     }
     #resume{

@@ -7,10 +7,6 @@
       {
         echo '<div class="container alert alert-danger text-center" role="alert">'.$erreur.'</div>';
       }
-      if(isset($accept))
-      {
-        echo '<div class="container alert alert-success text-center" role="alert">'.$accept.'<a href="index.php?page=connection" class="badge badge-danger ml-2"> ICI </a></div>';
-      }
       ?>
     <form method="post">
         <div class="row d-flex justify-content-center">

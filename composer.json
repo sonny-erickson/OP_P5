@@ -1,4 +1,16 @@
 {
     "name": "sonny/projet5",
+    "description": "Dernier projet de Openclassroom",
+    "authors": [
+        {
+            "name": "Sonny Erickson",
+            "email": "pet63910@hotmail.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Model\\":"models/"
+        }
+    },
     "require": {}
 }

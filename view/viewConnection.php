@@ -6,10 +6,12 @@
     <?php 
       if(isset($message))
     {
-      
       echo '<div class="container alert alert-danger text-center" role="alert">'.$message.'</div>';
     }
-    ?>
+    if(isset($accept))
+    {
+      echo '<div class="container alert alert-success text-center" role="alert">'.$accept.'</div>';
+    }    ?>
     <form class="text-center" method="post" action="index.php?page=connectionSend">
       <div class="row d-flex justify-content-center">
         <div class="form-group pb-2">
@@ -30,7 +32,6 @@
     </form>
     <div class="text-center">
       <p>
-          123@hotmail.fr / 1234
           Toujours pas de compte ? <a class="text-success" href="index.php?page=inscription">Inscrivez-vous ici !</a>
       </p>
     </div>

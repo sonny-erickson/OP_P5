@@ -24,11 +24,12 @@ function details()
 {
 	$platforms = [];
 	$slug = $_GET['slug'];
-		//todo:controller le slug et id existe
-		$modelAdmin = new Model\ModelAdmin();
-		$platforms = $modelAdmin->getPlatformsForGameAndMember($_GET['slug'],$_SESSION['id']);
-		$platforms = json_encode($platforms);
-		var_dump($platforms);
+		if(isset($slug) && isset($_SESSION['id'])){
+			$modelAdmin = new Model\ModelAdmin();
+			$platforms = $modelAdmin->getPlatformsForGameAndMember($_GET['slug'],$_SESSION['id']);
+			$platforms = json_encode($platforms);
+		}
+		
 		require ('view/jeuSolo.php');
 }
 function error()

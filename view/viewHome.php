@@ -1,4 +1,7 @@
-<?php  $title = "Page d'acceuil"; ?>
+<?php  $title = "Page d'acceuil"; 
+
+?>
+
 <?php ob_start(); ?>
   <div id='homePicture' style='height:300px'>  
   </div>
@@ -19,7 +22,7 @@
   </div>
   
       <script>
-       var url = "<?php echo $url;?>";
+       var url = "<?php if(isset($url)){echo $url;}?>";
       </script>
       <?php $content = ob_get_clean(); ?>
     <?php require ("view/template.php"); ?>

@@ -3,21 +3,7 @@
 
 <div class="text-center">
 	<h1 class="mt-4 text-light">Liste de vos jeux</h1>
-	<?php 
-	if(isset($alreadyGameR))
-	{
-		?>
-	<div class="container alert alert-danger text-center" role="alert"><?=$alreadyGameR?></div>
-	<?php 
-}       
-?>
 </div>
-<?php
-if(isset($alreadyGameR))
-	{var_dump($alreadyGameR);
-		echo '<div class="container alert alert-danger text-center" role="alert">'.$alreadyGameR.'</div>';
-	}       
-?>
 <div class="row">
 	<div class="container mt-4">
 		<div class="table-responsive">

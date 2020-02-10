@@ -8,12 +8,15 @@
     <?php endif;?>
   </div>  
 </div> 
-<script>
-  var platforms=<?php echo $platforms; ?>
-</script>
 <script src="js/Apisolo.js"></script>
-<script>   
-  let jeu = new Solo("<?php echo $slug; ?>");
+<script> 
+let jeu = new Solo("<?php echo $slug; ?>");
 </script>
+<?php if(isset($_SESSION['pseudo'])): ?>
+<script>
+  window.ownedPlatformsForUser=<?php echo $platforms;?>
+</script>
+<?php endif;?>
+
 <?php $content = ob_get_clean(); ?>
 <?php require ("view/template.php"); ?>

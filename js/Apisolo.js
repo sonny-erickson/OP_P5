@@ -30,7 +30,8 @@ class Solo{
             // Boucle pour envoyer en GET slug name & platform
             let platformsButton = '';
             for(let i = 0; i < apiResult.platforms.length; i++){
-                platformsButton +=`<a href="index.php?page=addGame&game=${apiResult.slug}&platform=${apiResult.platforms[i].platform.slug}" class='btn btn-info btn-sm mr-2 my-4'>${apiResult.platforms[i].platform.name}</a>`
+                const platformName = apiResult.platforms[i].platform.slug;
+                platformsButton +=`<a href="index.php?page=addGame&game=${apiResult.slug}&platform=${platformName}" class='btn btn-info btn-sm mr-2 my-4 ${window.ownedPlatformsForUser.includes(platformName) ? 'disabled' : ''}'>${apiResult.platforms[i].platform.name}</a>`         
             };
             //Mise place du HTML de chq page sans les boutons d'ajout ...
             document.getElementById("solo").innerHTML=`
@@ -78,9 +79,6 @@ class Solo{
                     <div class='d-flex justify-content-center flex-wrap' id='platformsButton'> ${platformsButton}</div>
                 </div>
             `
-            console.log(platforms);
-            
-            
         });
     }     
 }

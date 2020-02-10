@@ -9,5 +9,8 @@
         </div>
       </div>       
   </div>   
+  <script src="js/ApiNews.js"></script>
+    <script>
+let best = new News('https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-added','top');</script>
 <?php $content = ob_get_clean(); ?>
 <?php require ("view/template.php"); ?>

@@ -5,7 +5,6 @@ function listing()
     if(isset($_GET['num']) AND !empty($_GET['num']) AND is_numeric($_GET['num'])){
         $num=$_GET['num'];
     }
-   
 	$model = new Model\ModelAdmin();
     $links = $model -> getLinks($_SESSION['id'],$num);
     if(isset($_SESSION['pseudo'])){
@@ -58,11 +57,9 @@ function addGame()
     try{
         if(!$link){
         $modelAdmin->addLink($_SESSION['id'], $gameId, $platformId);
-        $alreadyGameG = 'Jeu ajouté !';
         header("Location: index.php?page=listing&num=0");  
         }
     }catch(Exception $e){
-        $alreadyGameR = 'Jeu déja existant sur cette console!';
         header("Location: index.php?page=listing&num=0"); 
     
     }

@@ -2,8 +2,8 @@
 class News{
     constructor(url, idContainer){
        // const container = document.getElementById(idContainer);
+       this.container = document.getElementById(idContainer);
         this.api(url);
-        this.container = document.getElementById(idContainer);
     }
     api = (url) =>{
         //console.log(url);

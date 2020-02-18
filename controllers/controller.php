@@ -29,7 +29,6 @@ function details()
 			$platforms = $modelAdmin->getPlatformsForGameAndMember($_GET['slug'],$_SESSION['id']);
 			$platforms = json_encode($platforms);
 		}
-		
 		require ('view/jeuSolo.php');
 }
 function error()

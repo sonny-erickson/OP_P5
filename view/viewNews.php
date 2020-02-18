@@ -5,7 +5,7 @@
     <p class="text-light text-center">Voici une liste des jeux les plus attendus pour l'année 2020</p>
     <div>
       <div class="container-fluid">
-        <div class="row" id="news" > </div>
+        <div class="row" id="news"> </div>
       </div>      
     </div> 
     <script src="js/ApiNews.js"></script>

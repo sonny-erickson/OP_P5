@@ -1,7 +1,6 @@
 
 class News{
     constructor(url, idContainer){
-       // const container = document.getElementById(idContainer);
        this.container = document.getElementById(idContainer);
         this.api(url);
     }
@@ -33,7 +32,6 @@ class News{
                 document.getElementById('photo-top-'+i).addEventListener('error',e => {
                     image = 'https://media.rawg.io/media/crop/600/400/screenshots/' + directory + "/" + file;
                     document.getElementById('photo-top-'+i).src=image;
-             
                 })
             }
         });

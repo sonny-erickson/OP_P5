@@ -24,7 +24,6 @@ function inscription()
                             if(strlen($pseudo)<=255)
                             {
                                 $model ->addUser($pseudo, $pass_hache, $mail);
-                                $accept = 'Inscription good';
                                 Header("Location:index.php?page=connection"); 
                             }
                             else

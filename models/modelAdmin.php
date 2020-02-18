@@ -10,6 +10,14 @@ class ModelAdmin extends Manager
         $result=$req->fetch();
         return $result;
     }
+    public function getPlatform($slug)
+    {
+        $db=$this->dbConnect();
+        $req=$db->prepare('SELECT * FROM platforms WHERE slug_platform=?');
+        $result=$req->execute(array($slug));
+        $result=$req->fetch();
+        return $result;
+    }
     public function getMember($id_members)
     {
         $db=$this->dbConnect();
@@ -26,12 +34,13 @@ class ModelAdmin extends Manager
             INNER JOIN games g ON l.id_games=g.game_id
             INNER JOIN platforms p ON l.id_platforms=p.id
             WHERE id_members=? limit ?,10');
-        $req->bindParam(1,$idUser,\PDO::PARAM_STR);
-        $req->bindParam(2,$start,\PDO::PARAM_INT);
+            // bindParam remplace argument exécut
+        $req->bindParam(1,$idUser,\PDO::PARAM_STR);//id_member = chaine de carac
+        $req->bindParam(2,$start,\PDO::PARAM_INT);//limit ? = int
         $results = $req -> execute();
         return $req;
      }
-    public function getLink($id_games, $id_platforms)
+    public function getLinkGamePlat($id_games, $id_platforms)
     {
         $db=$this->dbConnect();
         $req=$db->prepare('SELECT * FROM liaison WHERE id_games=? AND id_platforms=?');
@@ -39,45 +48,38 @@ class ModelAdmin extends Manager
         $result=$req->fetch();
         return $result;
     }
-    public function getPlatform($slug)
-    {
-        $db=$this->dbConnect();
-        $req=$db->prepare('SELECT * FROM platforms WHERE slug_platform=?');
-        $result=$req->execute(array($slug));
-        $result=$req->fetch();
-        return $result;
-    }
-public function addGame($title, $description, $rating, $genres, $slug)
+    public function addGame($title, $description, $rating, $genres, $slug)
     {
         $db=$this->dbConnect();
         $req = $db->prepare('INSERT INTO games (title, description, rating, genres, slug_game, date_add) VALUES (?, ?, ?, ?, ?, NOW())');
         $result=$req->execute(array($title, $description, $rating, $genres, $slug));
-        return $db->lastInsertId();
+        return $db->lastInsertId();//renvoie l'id du jeu add
     }
-public function addPlatform($slug, $name)
+    public function addPlatform($slug, $name)
     {
         $db=$this->dbConnect();
         $req=$db->prepare('INSERT INTO platforms (slug_platform, name) VALUES (?, ?)');
         $result=$req->execute(array($slug, $name));
-        return $db->lastInsertId();
+        return $db->lastInsertId();//renvoie l'id de la plat add
     }
-public function addLink($id_members, $id_games, $id_platforms)
+    public function addLink($id_members, $id_games, $id_platforms)
     {
         $db=$this->dbConnect();
         $req=$db->prepare('INSERT INTO liaison (id_members, id_games, id_platforms) VALUES (?, ?, ?)');
         $result=$req->execute(array($id_members, $id_games, $id_platforms));
         return $result;
     }
-//si supprime un jeu, seul le jeu d'une seule platform est supprimé
-public function deleteGame($game_id,$id)
+    //si supprime un jeu, seul le jeu d'une seule platform est supprimé
+    public function deleteGame($game_id,$id)
     {
         $db=$this->dbConnect();
         $req=$db->prepare('DELETE FROM liaison WHERE id_games=? AND id_platforms=?');
         $req->execute(array($game_id,$id));
         return $result;
     }
-public function getPlatformsForGameAndMember($slug,$id)
+    public function getPlatformsForGameAndMember($slug,$id)
     {
+        //Renvoie la platform(s)(array) du jeu($slug) si la platform du jeu est déjà dans la liste de member($id)
         $db=$this->dbConnect();
         $req=$db->prepare('SELECT p.slug_platform FROM games g 
             INNER JOIN liaison l ON g.game_id = l.id_games 
@@ -86,7 +88,7 @@ public function getPlatformsForGameAndMember($slug,$id)
         $req->execute(array($slug,$id));
         $platforms=[];
         while ($platform = $req->fetch()){
-        array_push($platforms,$platform['slug_platform']);
+            array_push($platforms,$platform['slug_platform']);//Add un ou plusieurs éléments à la fin d'un tableau
         }
         return $platforms;
     }

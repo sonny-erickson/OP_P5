@@ -18,7 +18,7 @@ function addGame()
     $modelAdmin = new Model\ModelAdmin();
     $game= $modelAdmin->getGame($_GET['game']);
     $platform= $modelAdmin->getPlatform($_GET['platform']);
-    $link=$modelAdmin->getLink($_GET['game'],$_GET['platform']);
+    $link=$modelAdmin-> getLinkGamePlat($_GET['game'],$_GET['platform']);
     $gameCheck=null;
     if(!$game){
         // jeu inexsistant= ajout bdd
@@ -42,7 +42,6 @@ function addGame()
         //recuperation console name 
         $platformsFetchName = $gameCheck->platforms;
          foreach($platformsFetchName as $platform) {
-            //var_dump($platform->platform->slug);
             if($platform->platform->slug == $_GET['platform']) {
                 $namePlatform .= $platform->platform->name;
                 $slugPlatform .= $platform->platform->slug;
@@ -61,7 +60,6 @@ function addGame()
         }
     }catch(Exception $e){
         header("Location: index.php?page=listing&num=0"); 
-    
     }
 }
    

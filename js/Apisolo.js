@@ -1,11 +1,9 @@
 class Solo{
     constructor(slug){
-       // const container = document.getElementById(idContainer);
         this.api(slug);
 
     }
     api = (slug) =>{
-        //console.log(slug);
         ajaxGet('https://api.rawg.io/api/games/'+ slug, (reponse) => {
             const apiResult = JSON.parse(reponse);// transforme en objet JavaScript
             let video = apiResult.clip;
@@ -31,7 +29,8 @@ class Solo{
             let platformsButton = '';
             for(let i = 0; i < apiResult.platforms.length; i++){
                 const platformName = apiResult.platforms[i].platform.slug;
-                platformsButton +=`<a href="index.php?page=addGame&game=${apiResult.slug}&platform=${platformName}" class='btn btn-info btn-sm mr-2 my-4 ${window.ownedPlatformsForUser.includes(platformName) ? 'disabled' : ''}'>${apiResult.platforms[i].platform.name}</a>`         
+                // Simple vérif si window.bla et défini et qu'il inclus platformName (jeu dans BDD) alors le bouton est grisé sinon platformButton = ''
+                platformsButton +=`<a href="index.php?page=addGame&game=${apiResult.slug}&platform=${platformName}" class='btn btn-info btn-sm mr-2 my-4 ${window.ownedPlatformsForUser !== undefined && window.ownedPlatformsForUser.includes(platformName) ? 'disabled' : ''}'>${apiResult.platforms[i].platform.name}</a>`         
             };
             //Mise place du HTML de chq page sans les boutons d'ajout ...
             document.getElementById("solo").innerHTML=`
@@ -73,12 +72,19 @@ class Solo{
                 </div>  
             </div>
                 ` 
+                try{
+
+                
+            // Encars bouton qui s'affichera si on est co (view/jeuSolo)
             document.getElementById("AddGameSolo").innerHTML=`
                 <div class='border border-success rounded mb-3'>
                     <h3 class='text-light text-center'>Pour ajouter le jeu à votre liste, cliquez sur la console correspondante:</h3>
                     <div class='d-flex justify-content-center flex-wrap' id='platformsButton'> ${platformsButton}</div>
                 </div>
             `
+        } catch(e){
+        }
+
         });
     }     
 }

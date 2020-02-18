@@ -16,8 +16,8 @@
 						<th scope="col">Console</th>
 						<th scope="col">Note</th>
 						<th scope="col">Date</th>
-						<th scope="col text-center">Suppression</th>
-						<th scope="col text-center">Infos</th>
+						<th scope="col" class="text-center">Suppression</th>
+						<th scope="col" >Infos</th>
 					</tr>
 				</thead>
 				<tbody class="table-light">
@@ -40,14 +40,14 @@
 			<?php
 			if($num>0){
 				?>
-			<a href="http://localhost/projet5/index.php?page=listing&num=<?= intval($num)-1; ?>" class='text-light mr-2'> Prev </a>
+				<a href="http://localhost/projet5/index.php?page=listing&num=<?= intval($num)-1; ?>" class='text-light mr-2'> Prev </a>
 			<?php
 			}?>
 			<?php
 			if($i==10){
-				?>
-					<a href="http://localhost/projet5/index.php?page=listing&num=<?= intval($num)+1; ?>" class='text-light ml-2'> Next </a>
-					<?php
+			?>
+				<a href="http://localhost/projet5/index.php?page=listing&num=<?= intval($num)+1; ?>" class='text-light ml-2'> Next </a>
+			<?php
 			}?>
 			</div>
 		</div>
